@@ -11,6 +11,12 @@ const actions = {
     context.commit('setInitObjMut', {key: 'name', val: params.name + 'addName'})
     context.commit('setInitObjMut', {key: 'age', val: params.age + 1})
     context.commit('setInitObjMut', {key: 'books', val: params.books})
+  },
+  setProfileDrawAct (context, bool) {
+    context.commit('setDrawMut', {key: 'profileDraw', val: bool})
+  },
+  setSettingDrawAct (context, bool) {
+    context.commit('setDrawMut', {key: 'settingDraw', val: bool})
   }
 }
 export default actions

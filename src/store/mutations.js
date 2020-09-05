@@ -9,6 +9,9 @@ const mutations = {
   },
   setInitObjMut (state, params) {
     state.initObj[params.key] = params.val
+  },
+  setDrawMut (state, params) {
+    state.draw[params.key] = params.val
   }
 }
 export default mutations

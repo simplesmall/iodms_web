@@ -9,6 +9,10 @@ const state = {
     name: '',
     age: 0,
     books: []
+  },
+  draw: {
+    profileDraw: false,
+    settingDraw: false
   }
 }
 export default state

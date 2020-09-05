@@ -4,14 +4,21 @@
     <p>{{this.localIsLogin}}</p>
     <el-input v-model="initObj.name"></el-input>
     <el-input v-model="initObj.age"></el-input>
-    <el-button @click="initObjAct">获取对象值</el-button>
+    <el-checkbox-group v-model="initObj.books">
+      <el-checkbox label="参与计划"></el-checkbox>
+      <el-checkbox label="绘制图表"></el-checkbox>
+      <el-checkbox label="成果展示"></el-checkbox>
+    </el-checkbox-group>
+    <el-button @click="initObjActTest">获取对象值</el-button>
     <p>{{initObj}}</p>
+    <el-button @click="getInitObj">获取state</el-button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Index',
+  routerName: '首页',
   data () {
     return {
       localIsLogin: false,
@@ -23,15 +30,20 @@ export default {
     }
   },
   methods: {
+    getInitObj () {
+      let initObjGet = this.$store.getters.initObjGet
+      this.$message({
+        message: initObjGet,
+        type: 'warning'
+      })
+    },
     testAct () {
       this.$store.dispatch('setIsLoginAct', !this.localIsLogin)
       this.localIsLogin = !this.localIsLogin
-      console.log(this.$store.state.isLogin)
     },
-    initObjAct () {
+    initObjActTest () {
       this.$store.dispatch('setInitObjAct', this.initObj)
       this.initObj = this.$store.state.initObj
-      console.log(this.$store.state.initObj)
     }
   }
 }

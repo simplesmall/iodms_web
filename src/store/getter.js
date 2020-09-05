@@ -5,6 +5,9 @@
 const getters = {
   isLoginGet (state) {
     return state.isLogin
+  },
+  initObjGet (state) {
+    return state.initObj
   }
 }
 export default getters
